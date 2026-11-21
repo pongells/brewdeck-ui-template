@@ -22,7 +22,8 @@ your UI too (this one does, at the bottom of its screen).
    ESP32-P4). Needs [uv](https://docs.astral.sh/uv/) (it runs PlatformIO); the first build downloads the toolchain
    and takes several minutes.
 5. Flash it: read Brewdeck's README, "Installing", first (a backup of the board's original flash is required, and a
-   Gaggiuino screen has encrypted flash), then `./fw.sh ui-p4 --flash`. `DRY_RUN=1` shows what it would do.
+   Gaggiuino screen has encrypted flash), then point `GAGGI_BACKUP` at your backup:
+   `GAGGI_BACKUP=/path/to/backup.bin ./fw.sh ui --flash` (or `ui-p4`). `DRY_RUN=1` shows what it would do.
 
 The first `./emu.sh` or `./fw.sh` fetches Brewdeck into `.brewdeck/` (git-ignored).
 
