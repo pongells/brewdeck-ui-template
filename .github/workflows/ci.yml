@@ -1,0 +1,44 @@
+name: CI
+
+# Builds this UI against the Brewdeck release in BREWDECK_REF: the emulator (proves it compiles and links on the
+# desktop) and the firmware for both boards.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  emulator:
+    name: Emulator build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
+      - run: ./emu.sh build
+
+  firmware:
+    name: Firmware, ${{ matrix.board }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - board: Sunton ESP32-S3
+            env: ui
+          - board: Guition ESP32-P4
+            env: ui-p4
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2   # v10.3.3 (Node 24)
+      - uses: actions/cache@v6   # the toolchain and the compiled Arduino libraries (first run ~10 min, later ~2 min)
+        with:
+          path: ~/.platformio
+          key: platformio-${{ matrix.env }}-${{ runner.os }}-${{ hashFiles('BREWDECK_REF') }}
+          restore-keys: platformio-${{ matrix.env }}-${{ runner.os }}-
+      - name: Build
+        run: |
+          # pioarduino can install a pioarduino package its own version check rejects (6.2.0.post1 vs >=6.2.0)
+          ./fw.sh ${{ matrix.env }} || { uv pip install --python ~/.platformio/penv/bin/python pioarduino==6.2.0 && ./fw.sh ${{ matrix.env }}; }
