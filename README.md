@@ -41,6 +41,8 @@ checkout of your own (e.g. while changing Brewdeck itself), set `BREWDECK=/path/
 - [Writing your own UI](https://github.com/pongells/brewdeck/blob/main/docs/custom-ui.md): the guide (rules, reading
   state, events, the screen, memory and settings, testing).
 - Brewdeck's own UI (`firmware/src/ui` there) is the large example: every screen, the settings, the shot review.
+- [Ledger](https://github.com/pongells/brewdeck-ui-ledger): a complete UI in its own repository, built like this
+  template (a light look, its own fonts, every screen in one file).
 - The emulator's keys and script commands (`tap x y`, `key s` for a shot, `save f.raw` for a screenshot, ...):
   Brewdeck's [development notes](https://github.com/pongells/brewdeck/blob/main/docs/development.md).
 
