@@ -19,6 +19,20 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
       - run: ./emu.sh build
 
+  checks:
+    name: Shared UI checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
+      - run: ./checks.sh
+      - uses: actions/upload-artifact@v7   # status.md, sheet.html with its screenshots, the logs
+        if: always()
+        with:
+          name: ui-checks
+          path: checks/
+          if-no-files-found: ignore
+
   firmware:
     name: Firmware, ${{ matrix.board }}
     runs-on: ubuntu-latest

@@ -27,6 +27,17 @@ your UI too (this one does, at the bottom of its screen).
 
 The first `./emu.sh` or `./fw.sh` fetches Brewdeck into `.brewdeck/` (git-ignored).
 
+## Check it
+
+`./checks.sh` runs Brewdeck's shared UI scenarios against your UI in the emulator (no window, about 10 minutes) and
+writes `checks/` (git-ignored): `status.md`, your UI's status for every feature in Brewdeck's
+[feature list](https://github.com/pongells/brewdeck/blob/main/docs/ui-features.md) (done, partial, failed, missing,
+omitted, not checked yet, by hand), and `sheet.html`, screenshots of every scenario with the features to check by
+looking at the top. The scenarios find your objects by tags (LVGL object names, the list's tag table; `myui.cpp`
+names two); a feature whose tag is missing counts as missing, not failed. What your UI leaves out on purpose goes in
+`ui/ui-features.txt` (it starts as the example's list). CI runs the checks on every push and keeps `checks/` as the
+`ui-checks` artifact. They need a Brewdeck release that has them (after v0.2.0); with an older one they are skipped.
+
 ## Which Brewdeck
 
 `BREWDECK_REF` names the Brewdeck release your UI builds against (a tag such as `v0.2.0`). Within the core's API

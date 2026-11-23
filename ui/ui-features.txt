@@ -1,0 +1,65 @@
+# What this UI leaves out of Brewdeck's docs/ui-features.md; features not listed here are checked normally.
+# ./checks.sh prints the full table (checks/status.md). It starts as the example's list: one screen of text, most
+# features left out on purpose, the Required ones it lacks marked missing (Required features cannot be omitted).
+# Update it as the UI grows: remove a line when the feature is there, and its scenarios will run.
+# id  status    note
+S2    partial   the link state as text ("Machine not found"), no offline screen
+R1    partial   the machine's mode as text, not its readiness
+R2    partial   the machine's mode as text
+R3    omitted   example: kept short
+R4    omitted   example: kept short
+R7    omitted   example: no charts
+R8    partial   no scale type
+R9    omitted   example: kept short
+R10   omitted   example: kept short
+R11   omitted   example: kept short
+T1    omitted   example: only the profile pick is a command
+T2    omitted   example: only the profile pick is a command
+T3    omitted   example: only the profile pick is a command
+T4    omitted   example: only the profile pick is a command
+T5    omitted   example: only the profile pick is a command
+T6    missing   no brew temperature or stop weight changes yet
+T7    omitted   example: only the profile pick is a command
+T8    omitted   example: only the profile pick is a command
+T9    partial   a refused profile pick is shown; no other changes
+P1    partial   picked only for now (not saved as the boot profile)
+P2    omitted   example: the machine's order
+P3    omitted   example: names only
+P4    omitted   example: kept short
+P5    omitted   example: kept short
+B1    partial   the shot is one line of text on the same screen
+B2    omitted   example: no charts
+B3    omitted   example: no charts
+B4    partial   no stop weight
+B5    omitted   example: no charts
+B6    omitted   example: no charts
+B7    partial   the result stays as a line of text
+V1    omitted   example: no review
+V2    omitted   example: no review
+V3    omitted   example: no review
+V4    missing   no review to close
+V5    omitted   example: no history
+M1    missing   no steam screen (mode, temperature and pressure as text)
+M2    omitted   example: kept short
+M3    missing   no cooling state
+F1    omitted   example: kept short
+F2    omitted   example: kept short
+N1    missing   notices not shown
+N2    omitted   example: notices not shown
+N3    omitted   example: notices not shown
+N4    omitted   example: notices not shown
+I1    omitted   example: never dims
+I2    omitted   example: never dims
+I3    omitted   example: never dims
+I4    missing   never dims or turns off, so nothing to wake
+I5    missing   never dims or turns off
+U1    missing   no menu, Wi-Fi or machine address pages
+U2    omitted   example: no menu
+U3    omitted   example: no menu
+U4    omitted   example: no menu
+W1    missing   no Wi-Fi pages
+W2    omitted   example: no Wi-Fi pages
+W3    missing   no machine address page
+W4    missing   no Wi-Fi pages
+O1    partial   the link state as text
+O3    missing   no Wi-Fi settings, machine address or retry
