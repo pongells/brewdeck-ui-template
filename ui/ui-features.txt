@@ -63,3 +63,4 @@ W3    missing   no machine address page
 W4    missing   no Wi-Fi pages
 O1    partial   the link state as text
 O3    missing   no Wi-Fi settings, machine address or retry
+X7    omitted   example: no updating page (the update still installs)
